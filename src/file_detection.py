@@ -15,9 +15,13 @@ class FileDetection(Karton):
     """
     Perform DiE, TrID, and Magika on samples, add tags and attributes.
 
+    For a given sample, run **DiE**, **TrID**, and **Magika** on it and:
+    1. Add the `packer_type` and `packer_name` found by **DIE** as **tags**
+    2. Extract specific fields from the responses and add them to the sample as **attributes**
+
     **Consumes:**
     ```
-    {"type": "sample", "stage": "recognized"}
+    {"type": "sample", "kind": "raw"}
     ```
 
     **Produces:**
@@ -39,7 +43,7 @@ class FileDetection(Karton):
 
     identity = "karton.file-detection"
     filters: ClassVar = [
-        {"type": "sample", "stage": "recognized"},
+        {"type": "sample", "kind": "raw"},
     ]
     version = __version__
     TRID_CUTOFF = 5

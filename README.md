@@ -39,7 +39,7 @@ For a given sample, run **DiE**, **TrID**, and **Magika** on it and:
 
 **Consumes:**
 ```json
-{"type": "sample", "stage": "recognized"}
+{"type": "sample", "kind": "raw"}
 ```
 
 **Produces:**
